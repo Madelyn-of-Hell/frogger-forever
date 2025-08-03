@@ -85,6 +85,12 @@
 | --- | --- | --- | --- |
 | current_scene | PackedScene | it's a wrapper for the current scene so you never have to technically switch scenes. Doing it like this because I like doing it this way better. | It's literally just any scene. It'll default to the main menu tho dw pookie |
 
+## [WorldConstants](object_directory.md#worldconstants)
+| Value | Type | Purpose | Parameters |
+| --- | --- | --- | --- |
+| grid_step | constant 64-bit signed integer | the grid to which the player's movement and the world's tile size should be locked | >0 |
+| direction | enumerator | an enum containing values left & right (±1) used to determine the direction of movement | left, right |
+
 ## [MaddiesCoolUiSystem](object_directory.md#maddiescooluisystem)
 | Value | Type | Purpose | Parameters |
 | --- | --- | --- | --- |
