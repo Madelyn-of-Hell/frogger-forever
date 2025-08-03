@@ -46,7 +46,10 @@
 | Value | Type | Purpose | Parameters |
 | --- | --- | --- | --- |
 | can\_be\_walked\_on | Boolean | whether or not the obstacle is a platform (e.g. a log) | True, False |
-| length | 64-bit Integer | the length of the object | \>= 1 |
+| length | 64-bit Integer | the length of the obstacle | \>= 1 |
+| max_length | 64-bit Integer | the maximum length of the obstacle type | \>= 1 |
+| velocity_x | 64-bit Integer | the constant velocity of the obstacle | any real value |
+| spritesheet | Texture2D | the spritesheet from which the obstacle draws its components | It's gonna be constructed from a preloaded png |
 | sprite | an Array of sprite2Ds | contains all parts of the obstacles sprite. Obstacles may be arbitrarily long based on length, and thus sprites must be made of multiple components. | Array length determined by length |
 | collider | Area2D | the collider for the obstacle. | Just a normal Area2D |
 
@@ -67,7 +70,7 @@
 | Value | Type | Purpose | Parameters |
 | --- | --- | --- | --- |
 | sprite | Sprite2D | The player's sprite | literally just a sprite |
-| movement\_controller | CharacterBody2D | the player's collider and movement handler | just a CharacterBody2D |
+| movement\_controller | Area2D | the player's collider | just an Area2D |
 | movement\_cooldown | 64-bit floating point double-precision number | the cooldown between player movement ticks | \>0 |
 
 ## [GameHandler](object_directory.md#gamehandler)

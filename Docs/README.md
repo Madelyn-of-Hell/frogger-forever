@@ -4,6 +4,7 @@ An object-oriented adaptation of the classic arcade game *Frogger*. Created By M
 
 ## Directory
 - [Plan](plan.md) 
+- [Log](log.md)
 - [Data Dictionary](data_dictionaries.md)
 - [Object Directory](object_directory.md)
 - [Class Diagram](class_diagram.md)

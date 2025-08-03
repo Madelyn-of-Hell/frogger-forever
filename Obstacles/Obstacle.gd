@@ -22,8 +22,10 @@ func _init(Speed:int, direction:Direction, Length:int = 0):
 	
 	if Length == 0: 
 		self.length = RandomNumberGenerator.new().randi() % self.max_length
-	elif Length < max_length:
+	elif Length <= max_length:
 		self.length=Length
+	elif Length > max_length:
+		self.length = Length % max_length
 	print_debug("length: ", self.length)
 	
 	add_child(generate_sprite())
