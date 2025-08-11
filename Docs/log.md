@@ -7,3 +7,6 @@ Obstacles had a bit of a rough development process because they were my first fu
 The Obstacle is a great example of inheritance though: almost *everything* about the child classes are inherited from the parent classes, and the child classes are basically just static instances that exist to set a few specific variables and pass on initialisation variables to the superclass to handle.  
 It's pretty great! 
 
+## Player
+==4 August==  
+The player went a lot smoother - partly because I didn't have to figure out how to make a resource node while doing it, partly because I already had the framework of the Obstacle to work off, partially just because it doesn't have to handle inheritance or fancy initialisation and just makes the same one player object. It was also where I solidified the concept of the grid I was going to work off: not a literal, strict grid but a system that aligns the player to the grid when not being acted on by outside circumstances and then *realigns* them after they stop being acted on by outside forces.
