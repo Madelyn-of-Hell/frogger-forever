@@ -1,6 +1,5 @@
 # Log
-
-
+[back to directory](README.md#directory)
 ## Obstacle
 ==2-4 August==  
 Obstacles had a bit of a rough development process because they were my first full attempt to implement custom objects within Godot. I built them in a few stages and their development kinda overlapped with that of the player as I rehashed my concept of how it should interact with other object and who should be doing what so my documentation got rehashed a few times but I eventually decided on breaking encapsulation on the player's passive velocity so that obstacles can force the player to move with 'em. Also the obstacle tells the player to die now because it means I don't need duplicate responses to triggers on the player's end.  

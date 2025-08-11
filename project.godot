@@ -11,9 +11,25 @@ config_version=5
 [application]
 
 config/name="Frogger Forever"
-run/main_scene="uid://cyd10onvvwbv5"
+run/main_scene="uid://0oin7ugt0qjt"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1152
+window/stretch/mode="viewport"
+
+[global_group]
+
+GameHandler="Your God and Overlord in all Things - YELL AT ME"
+
+[gui]
+
+theme/default_font_hinting=2
+theme/default_font_multichannel_signed_distance_field=true
+theme/lcd_subpixel_layout=0
 
 [input]
 
@@ -37,3 +53,7 @@ Right={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

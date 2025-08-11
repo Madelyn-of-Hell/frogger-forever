@@ -4,6 +4,8 @@
 
 | Value | Type | Purpose | Parameters |
 | --- | --- | --- | --- |
+| maximum_length | 64-bit integer | the maximum length of a slice | It's the floored value of vertical_pos × difficulty_scaler |
+| difficulty_scaler | 64-bit floating point double-precision number | It's a constant value used in scaling the difficult (through speed and slice size) | 0.1 |
 | vertical\_length | 64-bit integer | The number of lines of the same type making up the slice | must be >= 1  <br> must be <= 5 |
 | vertical\_pos | 64-bit integer | The vertical height at which the slice starts | \>= 0 |
 | lines | An array of HorizontalLine | Allows the HorizontalSlice to control each individual line as necessary | Array Length determined by Vertical\_Length |
