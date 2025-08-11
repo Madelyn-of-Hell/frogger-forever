@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://be2iqbnxp44pd"]
+
+[ext_resource type="Script" uid="uid://q0ov1pocwmyq" path="res://play.gd" id="1_06t4h"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MainMenu" type="Control" parent="."]
+custom_minimum_size = Vector2(150.79, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 646.0
+offset_bottom = 1149.0
+
+[node name="Play" type="Button" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -213.0
+offset_top = 151.0
+offset_right = 200.0
+offset_bottom = -885.0
+grow_horizontal = 2
+text = "PLAY"
+script = ExtResource("1_06t4h")
