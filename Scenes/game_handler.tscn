@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cg3607g8jtm11"]
 
-[ext_resource type="Script" uid="uid://dl7lx6ubk8nrv" path="res://GameHandler.gd" id="1_8jh67"]
+[ext_resource type="Script" uid="uid://dl7lx6ubk8nrv" path="res://Object Scripts/GameHandler.gd" id="1_jqstq"]
 
 [node name="GameHandler" type="Node2D"]
-script = ExtResource("1_8jh67")
+script = ExtResource("1_jqstq")
 metadata/_custom_type_script = "uid://dl7lx6ubk8nrv"

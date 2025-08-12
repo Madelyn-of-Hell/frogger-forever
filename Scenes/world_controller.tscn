@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://0oin7ugt0qjt"]
 
-[ext_resource type="Script" uid="uid://dfm5jl1hpe840" path="res://WorldController.gd" id="1_smx0p"]
+[ext_resource type="Script" uid="uid://dfm5jl1hpe840" path="res://Object Scripts/WorldController.gd" id="1_smx0p"]
 
 [node name="WorldController" type="Node2D"]
 script = ExtResource("1_smx0p")

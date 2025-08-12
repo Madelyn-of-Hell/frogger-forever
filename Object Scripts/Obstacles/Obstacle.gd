@@ -21,14 +21,12 @@ func _init(Speed:int, direction:Direction, Length:int = 0):
 	
 	if Length == 0: 
 		self.length = randi_range(1,self.max_length)
-	elif Length <= max_length:
-		self.length=Length
-	elif Length > max_length:
+	else:
 		self.length = Length % max_length
 	
 	add_child(generate_sprite())
 	add_child(generate_collider())
-
+	
 	self.velocity_x = Speed * direction
 
 ## Creates and positions a collider of the requisite dimensions
@@ -63,16 +61,22 @@ func generate_sprite() -> Node2D:
 	for i in self.length:
 		var new_sprite = Sprite2D.new()
 		new_sprite.set_texture(sprite_sheet)
+		
 		# Stop that ugly blurring on low-pixel textures
 		new_sprite.set_texture_filter(TEXTURE_FILTER_NEAREST)
 		new_sprite.set_scale(Vector2(sprite_size, sprite_size))
-		# Offset the sprite by its index multiplied by the grid step
+		
+		# Offset the sprite by its index multiplied by the grid step (and add half a grid step because the alignment needed it. I guess because the anchor was in the corner but I needed the anchor to be centered? wtvr. it works
 		new_sprite.position.x = (i * grid_step) - (length * grid_step) / 2 + ( grid_step * 1/2 )
+		
 		spriteparent.add_child(new_sprite)
 		self.sprite.append(new_sprite)
 	return spriteparent
 
+
 func _physics_process(delta: float) -> void:
 	self.position.x += velocity_x * delta
+	
+	# Kill the lil bugger when it's sufficiently far off-screen.
 	if abs(self.position.x) > screen_width * grid_step * 1.5:
 		queue_free()

@@ -6,7 +6,7 @@ var world: Array[HorizontalSlice]
 var ui: Control
 
 func create_new_slice():
-	print("slicing the pizza")
+	print("slicing the pizza 🤌🤌🤌")
 	var prev_slice = world.back()
 	var v_pos = prev_slice.vertical_pos - prev_slice.vertical_length
 	#print("New slice pos:", -v_pos)
@@ -32,7 +32,7 @@ func _on_player_death(score:int):
 	reset_button.set_text("restart")
 	reset_button.set_position(Vector2(0,-0.75*grid_step))
 	deathlabel.add_child(reset_button)
-	reset_button.button_up.connect(get_node('/root/WorldController')._change_scene.bind(preload("res://game_handler.tscn")))
+	reset_button.button_up.connect(get_node('/root/WorldController')._change_scene.bind(preload("res://Scenes/game_handler.tscn")))
 	deathlabel.set_horizontal_alignment(HORIZONTAL_ALIGNMENT_CENTER)
 	deathlabel.set_scale(Vector2(3,3))
 	

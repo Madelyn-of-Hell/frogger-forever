@@ -1,7 +1,7 @@
 extends Node2D
 class_name WorldController
 
-var current_scene:PackedScene = preload("res://main_menu.tscn")
+var current_scene:PackedScene = preload("res://Scenes/main_menu.tscn")
 
 func _ready():
 	add_child(current_scene.instantiate())
