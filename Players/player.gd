@@ -36,7 +36,7 @@ func _init() -> void:
 	add_child(collider)
 	
 	var camera = Camera2D.new()
-	camera.zoom = Vector2(0.5,0.5)
+	camera.zoom = Vector2(0.9,0.9)
 	camera.set_limit(SIDE_LEFT, 0)
 	camera.set_limit(SIDE_RIGHT, 0)
 	camera.set_limit(SIDE_BOTTOM, 0)
