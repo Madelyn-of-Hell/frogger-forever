@@ -44,6 +44,7 @@ func _init() -> void:
 
 	
 func _ready() -> void:
+	# Makes the player render above everything else
 	self.z_index= 1
 	player_dead.connect(get_parent()._on_player_death)
 	collider.area_entered.connect(_on_collider_entry)
