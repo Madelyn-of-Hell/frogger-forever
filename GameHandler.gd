@@ -5,17 +5,17 @@ var player: Player
 var world: Array[HorizontalSlice]
 var ui: Control
 
-func create_new_slice(area:Area2D = Area2D.new(), override:bool = false):
-	if override or area.get_parent().name == "Player":
-		var prev_slice = world.back()
-		var v_pos = prev_slice.vertical_pos - prev_slice.vertical_length
-		#print("New slice pos:", -v_pos)
-		var new_slice = HorizontalSlice.new(v_pos, world.size())
-		new_slice.position.y = v_pos * grid_step
-		world.append(new_slice)
-		call_deferred("add_child", new_slice)
-		cleanup()
-		print(world.size())
+func create_new_slice():
+	print("slicing the pizza")
+	var prev_slice = world.back()
+	var v_pos = prev_slice.vertical_pos - prev_slice.vertical_length
+	#print("New slice pos:", -v_pos)
+	var new_slice = HorizontalSlice.new(v_pos, world.size())
+	new_slice.position.y = v_pos * grid_step
+	world.append(new_slice)
+	call_deferred("add_child", new_slice)
+	cleanup()
+	print(world.size())
 
 func cleanup():
 	if world.size() > 20:
@@ -46,7 +46,7 @@ func _ready() -> void:
 	world.append(first_slice)
 	add_child(first_slice)
 	for i in 10:
-		create_new_slice(null, true)
+		create_new_slice()
 	self.player = Player.new()
 	self.player.set_position(Vector2(0,-2* grid_step))
 	self.player.target_pos = Vector2(0,-2* grid_step)

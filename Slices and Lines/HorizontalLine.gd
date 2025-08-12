@@ -11,7 +11,6 @@ var floor_sprite:Texture2D
 var obstacle_speed: float
 var line_collider:Area2D
 
-
 func _init(v_pos:int, m_direction:Direction, s_cooldown:float, o_speed:float = 100) -> void:
 	if o_speed == 0:
 		breakpoint
@@ -61,15 +60,26 @@ func generate_collider() -> Area2D:
 	# define hitbox dimensions
 	collision_shape.set_shape(RectangleShape2D.new())
 	collision_shape.shape.set_size(Vector2(WorldConstants.screen_width * grid_step, grid_step))
-	
-	collider.area_entered.connect(Engine.get_main_loop().get_first_node_in_group("GameHandler").create_new_slice)
+	collider.area_entered.connect(_entry_dummy)
 	# debugging
 	#print("collision shape:",collision_shape)
 	#print("collision size:",collision_shape.shape.size)
 	#print("collider size:",collider.scale)
 	return collider
+## Legacy code; kept around because I think it's funny as hell that *this* is where I went before just doing the obvious thing. LET ME BE A LESSON TO  YOU, YOUNGLINGS: THINK BROADLY.
+#func _ready():
+	## This is what I like to call "maddie is very tired" jank. Because when the line is created, it isn't already a child of the parent, I can't just connect to a parent's signal. How do I get around this? I create a timer that waits for 0.1 seconds and then issues the connection. it's ugly and stupid and could theoretically fail in some cases, but that's not even the worst of it. This node, at ready, won't even be part of the SCENETREE YET, and for those who don't know (hi pawley ^•^) the scene tree is the thing that has the create_timer function. So: how do I get around this? I ask the Engine, my good old friend who just happens to be a global variable, to pass me a reference to the main loop of the game, which happens to be the scenetree. This trick is used in other places too (and you can find the person I got it from) but this, in my opinion, is the most egregious.
+	#Engine.get_main_loop().create_timer(1).timeout.connect(stupidbadeviltest)
+#
+#func stupidbadeviltest():
+	#print("connecting...")
+	#self.line_collider.area_entered.connect.bind(get_parent()._create_slice_wrapper)
 	
-	
+func _entry_dummy(area: Area2D):
+	if area.get_parent().name == "Player":
+		get_parent()._create_slice_wrapper()
+		print("Demanding new slice")
+
 func _spawner_timeout():
 	var new_obstacle = spawner_object.new(self.obstacle_speed, self.movement_direction)
 	new_obstacle.position.x = ( -screen_width / 2 ) * grid_step * movement_direction

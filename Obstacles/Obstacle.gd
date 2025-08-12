@@ -18,15 +18,13 @@ var collider:Area2D
 
 func _init(Speed:int, direction:Direction, Length:int = 0):
 	name = "Obstacle"
-	self.position =(Vector2(grid_step,10*grid_step))
 	
 	if Length == 0: 
-		self.length = RandomNumberGenerator.new().randi() % self.max_length
+		self.length = randi_range(1,self.max_length)
 	elif Length <= max_length:
 		self.length=Length
 	elif Length > max_length:
 		self.length = Length % max_length
-	print_debug("length: ", self.length)
 	
 	add_child(generate_sprite())
 	add_child(generate_collider())
@@ -47,10 +45,6 @@ func generate_collider() -> Area2D:
 	# define hitbox dimensions
 	collision_shape.set_shape(RectangleShape2D.new())
 	collision_shape.shape.set_size(Vector2(self.length * grid_step, grid_step))
-	
-	# connect collider triggers
-	collider.area_entered.connect(_on_hitbox_entered)
-	collider.area_exited.connect(_on_hitbox_exited)
 	
 	# debugging
 	#print("collision shape:",collision_shape)
@@ -77,25 +71,8 @@ func generate_sprite() -> Node2D:
 		spriteparent.add_child(new_sprite)
 		self.sprite.append(new_sprite)
 	return spriteparent
-	
+
 func _physics_process(delta: float) -> void:
 	self.position.x += velocity_x * delta
-
-func _ready():
-	position = Vector2(200,200)
-
-func _on_hitbox_entered(area: Area2D):
-	var object = area.get_parent()
-	if object.name == "Player":
-		if not can_be_walked_on:
-			object.die()
-		print("moving player")
-		object.passive_velocity = velocity_x
-	print(object.name," entered")
-	
-func _on_hitbox_exited(area: Area2D):
-	var object = area.get_parent()
-	if object.name == "Player":
-		print("no longer moving player")
-		object.passive_velocity = 0
-	print(object.name," left")
+	if abs(self.position.x) > screen_width * grid_step * 1.5:
+		queue_free()

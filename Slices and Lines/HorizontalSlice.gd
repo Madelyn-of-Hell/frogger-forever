@@ -1,8 +1,8 @@
 extends WorldConstants
 class_name HorizontalSlice
-# MADDIE WRITE IT SO THAT ALL THE LINES ASK DADDY SLICE FOR PERMISSION TO CREATE A NEW LINE BUT DADDY SLICE ONLY DOES IT THE FIRST TIME OK BYE GNIGHT SLEEP NOW YOU NEED IT YOU TIRED FUCKING MORON 
 var maximum_length:int
 var difficulty_scaler:float = 2
+var has_created_slice = false
 var slice_type:SliceType
 var vertical_length:int
 var vertical_pos:int
@@ -10,6 +10,7 @@ var lines:Array[HorizontalLine]
 var index:int
 
 func _init(v_pos:int, array_index:int, v_length:int = 0, type:SliceType = SliceType.None):
+	
 	self.index = array_index
 	self.vertical_pos = v_pos
 	
@@ -59,3 +60,10 @@ enum SliceType {
 	SafeZone,
 	None
 }
+
+func _create_slice_wrapper():
+	if not has_created_slice:
+		print("Slice approved")
+		Engine.get_main_loop().get_first_node_in_group("GameHandler").create_new_slice()
+		has_created_slice = true
+	else: pass#print("Slice denied")
