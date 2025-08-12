@@ -51,10 +51,10 @@ func _ready() -> void:
 	collider.area_exited.connect(_on_collider_exit)
 
 func _physics_process(delta: float) -> void:
-	# Lerps according to (x-1)³ + 1 for x ∈ [0,1]
-	# Imma be honest it might not be that complex but im rlly proud of myself for figuring out how to do that working entirely with logic and desmos c:
-	var lerp_weight = pow((1 - movement_timer.get_time_left()/movement_timer.get_wait_time()) - 1,3)+1
+	# Lerps according to √(1-(x-1)²) for x ∈ [0,1] taken from https://easings.net/#easeOutCirc
+	var lerp_weight = sqrt(1 - pow(movement_timer.get_time_left()/movement_timer.get_wait_time(), 2))
 	self.position = position.lerp(target_pos, lerp_weight)
+	# Moves itself along with logs if needed
 	if passive_velocity != 0:
 		self.position.x += passive_velocity * delta
 		self.target_pos.x += passive_velocity * delta
