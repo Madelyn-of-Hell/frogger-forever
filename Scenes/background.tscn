@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl7nto5077r3"]
+
+[ext_resource type="Texture2D" uid="uid://c0qikvfn1ev5m" path="res://Assets/bg.png" id="1_sn1xx"]
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(323.50003, 576.00006)
+scale = Vector2(40.562496, 39.72414)
+texture = ExtResource("1_sn1xx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 406.00003
+offset_right = 75.0
+offset_bottom = 428.33337
+scale = Vector2(8.69, 8.69)
+text = "Loading..."

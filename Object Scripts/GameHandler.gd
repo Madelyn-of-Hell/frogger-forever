@@ -50,7 +50,7 @@ func _ready() -> void:
 	self.add_to_group("GameHandler")
 	
 	# Makin' the first slice manually bc it's easier than modifying create_new_slice
-	var first_slice = HorizontalSlice.new(0,0,5,HorizontalSlice.SliceType.SafeZone)
+	var first_slice = HorizontalSlice.new(0,0,3,HorizontalSlice.SliceType.SafeZone)
 	world.append(first_slice)
 	add_child(first_slice)
 	# Generate starting environment
@@ -62,8 +62,10 @@ func _ready() -> void:
 	self.player.target_pos = Vector2(0,-2* grid_step)
 	
 	# OK so when the game starts, all the objects have just loaded in so there are no objects on the screen. My solution to this is to speed the game up 10x, freeze this thread for a bit while the objects do their thing, then revert it to normal speed and start the game 👍
+	var loading_screen = preload("res://Scenes/background.tscn").instantiate()
+	add_child(loading_screen)
 	Engine.set_time_scale(10)
 	await get_tree().create_timer(10.0).timeout
 	Engine.set_time_scale(1)
-	
+	loading_screen.queue_free()
 	add_child(player)

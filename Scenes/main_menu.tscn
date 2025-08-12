@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://be2iqbnxp44pd"]
+[gd_scene load_steps=3 format=3 uid="uid://be2iqbnxp44pd"]
 
-[ext_resource type="Script" uid="uid://q0ov1pocwmyq" path="res://Object Scripts/play.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://q0ov1pocwmyq" path="res://Object Scripts/play.gd" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://c0qikvfn1ev5m" path="res://Assets/bg.png" id="2_1ehe0"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(324.00006, 576.5)
+scale = Vector2(40.5, 39.68966)
+texture = ExtResource("2_1ehe0")
 
 [node name="MainMenu" type="Control" parent="."]
 custom_minimum_size = Vector2(150.79, 0)
@@ -13,14 +20,29 @@ offset_bottom = 1149.0
 
 [node name="Play" type="Button" parent="MainMenu"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.5
+offset_top = -4.0
+offset_right = 206.5
+offset_bottom = 108.03003
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(205.45, -1.64)
+script = ExtResource("1_48xlc")
+
+[node name="Label" type="Label" parent="MainMenu/Play"]
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -213.0
-offset_top = 151.0
-offset_right = 200.0
-offset_bottom = -885.0
+offset_left = -19.5
+offset_right = 19.5
+offset_bottom = 22.333334
 grow_horizontal = 2
+scale = Vector2(5.06, 5.06)
+pivot_offset = Vector2(19.74, 0)
 text = "PLAY"
-script = ExtResource("1_06t4h")

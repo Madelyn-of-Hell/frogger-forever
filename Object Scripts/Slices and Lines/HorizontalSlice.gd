@@ -14,7 +14,7 @@ func _init(v_pos:int, array_index:int, v_length:int = 0, type:SliceType = SliceT
 	self.index = array_index
 	self.vertical_pos = v_pos
 	
-	maximum_length = floor(3 + (self.index * self.difficulty_scaler))
+	maximum_length = floor(3 + (self.index / pow(self.difficulty_scaler, 2)))
 	if v_length == 0:
 		self.vertical_length = randi_range(1,self.maximum_length)
 	elif v_length > self.maximum_length:
