@@ -83,6 +83,7 @@ func align_to_grid(vector:Vector2) -> Vector2:
 	return floored_vec
 
 func die():
+	
 	player_dead.emit(-floor(self.position.y / grid_step))
 	queue_free()
 
@@ -91,14 +92,14 @@ func _on_collider_entry(area:Area2D):
 	if parent_node is LogObstacle: 
 		passive_velocity += parent_node.velocity_x
 		is_on_logs += 1
-		print("entered a log")
+		#print("entered a log")
 	if parent_node is CarObstacle:
 		die()
 	if parent_node is River: 
 		#print("entered a river")
-		if is_on_logs == 0:
-			die()
-		else:
+		#if is_on_logs == 0:
+			#die()
+		#else:
 			is_in_river = true
 	if parent_node is Road: is_in_river = false
 	if parent_node is SafeZone: is_in_river = false
@@ -109,10 +110,12 @@ func _on_collider_exit(area:Area2D):
 	if parent_node is LogObstacle: 
 		passive_velocity -= parent_node.velocity_x
 		is_on_logs -= 1
-		print("exited a log")
+		#print("exited a log")
 		if is_in_river and is_on_logs == 0:
 			die()
 	if parent_node is River: 
 		is_in_river = false
 		#print("exited a river")
-			
+	if parent_node is SafeZone:
+		if is_in_river and is_on_logs == 0:
+			die()
