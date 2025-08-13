@@ -17,13 +17,13 @@ func create_new_slice():
 	
 	call_deferred("add_child", new_slice)
 	cleanup()
-	print(world.size())
+	print("World is now ", world.size(), " slices long")
 
 ## A relatively untested function for killing old  chunks so you don't gotta deal wit tha memory spikes hopefully 👍
 func cleanup():
 	if world.size() > 20:
-		world[-1].queue_free()
-		world.remove_at(-1)
+		world[0].queue_free()
+		world.remove_at(0)
 	print("cleaned")
 	
 func _on_player_death(score:int):
