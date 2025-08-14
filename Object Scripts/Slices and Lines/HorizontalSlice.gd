@@ -2,7 +2,7 @@ extends WorldConstants
 class_name HorizontalSlice
 var maximum_length:int
 var difficulty_scaler:float = 2
-var has_created_slice = false
+var has_created_slice := false
 var slice_type:SliceType
 var vertical_length:int
 var vertical_pos:int
@@ -13,7 +13,6 @@ func _init(v_pos:int, array_index:int, v_length:int = 0, type:SliceType = SliceT
 	
 	self.index = array_index
 	self.vertical_pos = v_pos
-	
 	maximum_length = floor(3 + (self.index / pow(self.difficulty_scaler, 2)))
 	if v_length == 0:
 		self.vertical_length = randi_range(1,self.maximum_length)
@@ -29,7 +28,7 @@ func _init(v_pos:int, array_index:int, v_length:int = 0, type:SliceType = SliceT
 	for i in self.vertical_length:
 		var new_line:HorizontalLine
 		match self.slice_type:
-			SliceType.Road: new_line = Road.new(vertical_pos - i, Direction.left, randf_range(10,70) / difficulty_scaler)
+			SliceType.Road: new_line = Road.new(vertical_pos - i, Direction.left, randf_range(10,70) / (difficulty_scaler * 1.7))
 			SliceType.River: new_line = River.new(vertical_pos - i, Direction.get(Direction.keys()[randi_range(0,1)]), 2 * difficulty_scaler)
 			SliceType.SafeZone: new_line = SafeZone.new(vertical_pos + i, Direction.right, 999)
 			_:  push_error("SLICE TYPE INVALID LINE 35")

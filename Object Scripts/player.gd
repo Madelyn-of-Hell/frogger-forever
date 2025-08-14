@@ -116,6 +116,7 @@ func _on_collider_exit(area:Area2D):
 	if parent_node is River: 
 		is_in_river = false
 		#print("exited a river")
-	if parent_node is SafeZone:
+	if parent_node is SafeZone or parent_node is Road:
 		if is_in_river and is_on_logs == 0:
 			die()
+	

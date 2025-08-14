@@ -27,23 +27,9 @@ func cleanup():
 	print("cleaned")
 	
 func _on_player_death(score:int):
-	# Make a restart label
-	print("Player Died")
-	print("Player Score:", score)
-	var deathlabel = Label.new()
-	deathlabel.set_text("You Died!\nScore: %s" % score)
-	deathlabel.set_position(Vector2(0,score*-grid_step))
-	var reset_button = Button.new()
-	reset_button.set_text("restart")
-	reset_button.set_position(Vector2(0,-0.75*grid_step))
-	deathlabel.add_child(reset_button)
-	reset_button.button_up.connect(get_node('/root/WorldController')._change_scene.bind(preload("res://Scenes/game_handler.tscn")))
-	deathlabel.set_horizontal_alignment(HORIZONTAL_ALIGNMENT_CENTER)
-	deathlabel.set_scale(Vector2(3,3))
-	
-
-	deathlabel.add_child(Camera2D.new())
-	self.add_child(deathlabel)
+	var death_panel = preload("res://Scenes/restart.tscn").instantiate()
+	death_panel.set_position(Vector2(0,-0.75*grid_step))
+	call_deferred("add_child", death_panel)
 
 func _ready() -> void:
 	# A little group with just gamehandler so that everyone can yell at it from everywhere. I don't really wanna repeat this trick because it feels like a cheat but at the same time it works and it's super simple so heck you :c

@@ -30,9 +30,10 @@ An object representing the entire scope of the world. responsible for generating
 *Inherits Node*  
 The root of the whole game. Always gonna be the toppiest node because its whole job is to instantiate whichever scene is current as its child.
 
-## MaddiesCoolUiSystem
-*Inherits Control*  
-A control variable I slapped a new method onto to create modal popups automatically
+## ~~MaddiesCoolUiSystem~~
+~~*Inherits Control*  
+A control variable I slapped a new method onto to create modal popups automatically~~  
+Removed for complexity
 
 ## WorldConstants
 *inherits Node2D*  

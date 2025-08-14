@@ -5,7 +5,7 @@
 | Value | Type | Purpose | Parameters |
 | --- | --- | --- | --- |
 | maximum_length | 64-bit integer | the maximum length of a slice | It's the floored value of vertical_pos × difficulty_scaler |
-| difficulty_scaler | 64-bit floating point double-precision number | It's a constant value used in scaling the difficult (through speed and slice size) | 0.1 |
+| difficulty_scaler | 64-bit floating point double-precision number | It's a constant value used in scaling the difficult (through speed and slice size) | >0 |
 | vertical\_length | 64-bit integer | The number of lines of the same type making up the slice | must be >= 1  <br> must be <= 5 |
 | vertical\_pos | 64-bit integer | The vertical height at which the slice starts | \>= 0 |
 | lines | An array of HorizontalLine | Allows the HorizontalSlice to control each individual line as necessary | Array Length determined by Vertical\_Length |
@@ -20,7 +20,10 @@
 | floor\_is\_safe | Boolean | Whether or not the player can walk on the floor without dying. e.g. false in water, true on road. | true or false |
 | movement\_direction | 64-bit integer | A polarised value used to determine the direction (left or right) that obstacles move on this slice. Used instead of a boolean for legibility. | \-1 or 1. |
 | spawner\_cooldown | 64-bit floating point double-precision number | a decimal value used to determine the time between object spawns. increases with height. | \>0 |
+| spawner\_timer | Timer | The timer used to trigger object spawning | a Timer |
 | spawner\_object | Obstacle | A reference to the type of object the spawner should construct. | any static child of the Object class. |
+| floor_sprite | Texture2D | the sprite used for each tile of ground present. | a Texture2D, initialised from a preloaded image |
+| obstacle_speed | 64-bit floating point double-precision number | the speed at which the obstacle moves. | > 0 |
 
 ## [River](object_directory.md#river)
 
@@ -60,20 +63,25 @@
 | Value | Type | Purpose | Parameters |
 | --- | --- | --- | --- |
 | static can\_be\_walked\_on | Boolean | A static override of the superclass' variable determining that logs can be walked on. | True or False |
+| static max_length | 64-bit integer | the maximum length of the log | >0 |
 
 ## [Car](object_directory.md#car)
 
 | Value | Type | Purpose | Parameters |
 | --- | --- | --- | --- |
 | static can\_be\_walked\_on | Boolean | A static override of the superclass' variable determining that cars cannot be walked on. May be subject to change. | True or False |
+| static max_length | 64-bit integer | the maximum length of the log | >0 |
 
 ## [Player](object_directory.md#player)
 
 | Value | Type | Purpose | Parameters |
 | --- | --- | --- | --- |
 | sprite | Sprite2D | The player's sprite | literally just a sprite |
-| movement\_controller | Area2D | the player's collider | just an Area2D |
-| movement\_cooldown | 64-bit floating point double-precision number | the cooldown between player movement ticks | \>0 |
+| collider | Area2D | the player's collider | just an Area2D |
+| static movement\_cooldown | 64-bit floating point double-precision number | the cooldown between player movement ticks | \>0 |
+| movement_timer | Timer | the timer used to implement the movement cooldown | just a timer lol |
+| target_pos | Vector2 | a grid-aligned point that the player will lerp to. | any old vector 2 |
+| passive_velocity | 64-bit double precision floating point number | the velocity provided by logs (and theoretically other things in the future) | any real value | 
 
 ## [GameHandler](object_directory.md#gamehandler)
 
@@ -82,7 +90,7 @@
 | player | Player | the game handler gets to own the player c: as a treat | just a constructed player |
 
 | world | A linked list of HorizontalSlice | the entire world. Used for constructing more world and I might eventually free up old slices with it if anyone somehow manages to go through GIGABYTES of available ram | I mean it just has to be a list of horizontalslices as long as it's that you're chill dog |
-| ui | MaddiesCoolUiSystem | A child class of the control node that's basically just a control node with some added methods for modals and stuff containing the in-game ui - pause/settings menus, movement buttons (if I add 'em) and anything else that needs to show up| Just a blank control node. Its entire purpose is to have and make children lol|
+| ui | Control | contains the pause menu and restart button| A Control node |
 
 ## [WorldController](object_directory.md#worldcontroller)
 
@@ -96,7 +104,8 @@
 | grid_step | constant 64-bit signed integer | the grid to which the player's movement and the world's tile size should be locked | >0 |
 | direction | enumerator | an enum containing values left & right (±1) used to determine the direction of movement | left, right |
 
-## [MaddiesCoolUiSystem](object_directory.md#maddiescooluisystem)
-| Value | Type | Purpose | Parameters |
+## ~~[MaddiesCoolUiSystem](object_directory.md#maddiescooluisystem)~~
+
+| ~~Value~~ | ~~Type~~ | ~~Purpose~~ | ~~Parameters~~ |
 | --- | --- | --- | --- |
-| yeah sorry kinda phoned it in with this one it's basically a child of control so all that just gets inherited. byeee \^•\^||||
+| ~~yeah sorry kinda phoned it in with this one it's basically a child of control so all that just gets inherited. byeee \^•\^~~||||
