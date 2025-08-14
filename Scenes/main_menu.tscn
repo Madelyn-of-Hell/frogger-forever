@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://be2iqbnxp44pd"]
+[gd_scene load_steps=10 format=3 uid="uid://be2iqbnxp44pd"]
 
 [ext_resource type="Script" uid="uid://q0ov1pocwmyq" path="res://Object Scripts/play.gd" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://c0qikvfn1ev5m" path="res://Assets/bg.png" id="2_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://c5sgrcdmy6axw" path="res://Assets/letters/F.svg" id="3_yhxw7"]
+[ext_resource type="Script" uid="uid://by3ps8w313n2q" path="res://Scenes/letter_wobbler.gd" id="4_16hvj"]
+[ext_resource type="Texture2D" uid="uid://cce02v3js0jw6" path="res://Assets/letters/R.svg" id="4_trj04"]
+[ext_resource type="Texture2D" uid="uid://dphksdk386yp6" path="res://Assets/letters/O.svg" id="5_16hvj"]
+[ext_resource type="Texture2D" uid="uid://8f2n08qhy6f1" path="res://Assets/letters/G.svg" id="6_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://cmuyokkmt5l3d" path="res://Assets/letters/E.svg" id="7_t1dhk"]
+[ext_resource type="Texture2D" uid="uid://ddm6n8o67jgey" path="res://Assets/letters/V.svg" id="8_5egv6"]
 
 [node name="Node2D" type="Node2D"]
+texture_filter = 2
+scale = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -46,3 +55,122 @@ grow_horizontal = 2
 scale = Vector2(5.06, 5.06)
 pivot_offset = Vector2(19.74, 0)
 text = "PLAY"
+
+[node name="Title" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 650.0
+offset_bottom = 238.0
+
+[node name="Frogger" type="Control" parent="Title"]
+anchors_preset = 0
+offset_top = 56.0
+offset_right = 649.0
+offset_bottom = 232.0
+
+[node name="F" type="Sprite2D" parent="Title/Frogger"]
+texture_filter = 2
+position = Vector2(67.28, 56.28)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_yhxw7")
+script = ExtResource("4_16hvj")
+
+[node name="R" type="Sprite2D" parent="Title/Frogger"]
+texture_filter = 2
+position = Vector2(148.03, 56.28)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("4_trj04")
+script = ExtResource("4_16hvj")
+
+[node name="O" type="Sprite2D" parent="Title/Frogger"]
+texture_filter = 2
+position = Vector2(229.03, 56.28)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("5_16hvj")
+script = ExtResource("4_16hvj")
+
+[node name="G" type="Sprite2D" parent="Title/Frogger"]
+texture_filter = 2
+position = Vector2(311.03, 56.28)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("6_vr1f0")
+script = ExtResource("4_16hvj")
+
+[node name="G2" type="Sprite2D" parent="Title/Frogger"]
+texture_filter = 2
+position = Vector2(387.03, 56.28)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("6_vr1f0")
+script = ExtResource("4_16hvj")
+
+[node name="E" type="Sprite2D" parent="Title/Frogger"]
+texture_filter = 2
+position = Vector2(466.03, 56.28)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("7_t1dhk")
+script = ExtResource("4_16hvj")
+
+[node name="R2" type="Sprite2D" parent="Title/Frogger"]
+texture_filter = 2
+position = Vector2(556.03, 56.28)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("4_trj04")
+script = ExtResource("4_16hvj")
+
+[node name="Forever" type="Control" parent="Title"]
+anchors_preset = 0
+offset_left = 134.0
+offset_top = 180.0
+offset_right = 494.0
+offset_bottom = 240.0
+
+[node name="F" type="Sprite2D" parent="Title/Forever"]
+texture_filter = 2
+position = Vector2(30.550007, 28.550001)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_yhxw7")
+script = ExtResource("4_16hvj")
+
+[node name="O" type="Sprite2D" parent="Title/Forever"]
+texture_filter = 2
+position = Vector2(73.55, 28.550001)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_16hvj")
+script = ExtResource("4_16hvj")
+
+[node name="R" type="Sprite2D" parent="Title/Forever"]
+texture_filter = 2
+position = Vector2(337.55, 28.550001)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_trj04")
+script = ExtResource("4_16hvj")
+
+[node name="E" type="Sprite2D" parent="Title/Forever"]
+texture_filter = 2
+position = Vector2(175.55, 28.550001)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_t1dhk")
+script = ExtResource("4_16hvj")
+
+[node name="V" type="Sprite2D" parent="Title/Forever"]
+texture_filter = 2
+position = Vector2(227.55, 28.550001)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_5egv6")
+script = ExtResource("4_16hvj")
+
+[node name="E2" type="Sprite2D" parent="Title/Forever"]
+texture_filter = 2
+position = Vector2(277.55, 28.550001)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_t1dhk")
+script = ExtResource("4_16hvj")
+
+[node name="R2" type="Sprite2D" parent="Title/Forever"]
+texture_filter = 2
+position = Vector2(129.55, 28.550001)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_trj04")
+script = ExtResource("4_16hvj")
