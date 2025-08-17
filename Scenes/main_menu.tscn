@@ -1,18 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://be2iqbnxp44pd"]
+[gd_scene load_steps=16 format=3 uid="uid://be2iqbnxp44pd"]
 
 [ext_resource type="Script" uid="uid://q0ov1pocwmyq" path="res://Object Scripts/play.gd" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://c0qikvfn1ev5m" path="res://Assets/bg.png" id="2_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://m2y7ur1y4mrg" path="res://Assets/letters/P.svg" id="3_5egv6"]
 [ext_resource type="Texture2D" uid="uid://c5sgrcdmy6axw" path="res://Assets/letters/F.svg" id="3_yhxw7"]
+[ext_resource type="Script" uid="uid://nh13d23sco71" path="res://Scenes/button_wobble.gd" id="4_8dnnj"]
 [ext_resource type="Script" uid="uid://by3ps8w313n2q" path="res://Scenes/letter_wobbler.gd" id="4_16hvj"]
 [ext_resource type="Texture2D" uid="uid://cce02v3js0jw6" path="res://Assets/letters/R.svg" id="4_trj04"]
+[ext_resource type="Texture2D" uid="uid://dwho7f10mp3ae" path="res://Assets/letters/L.svg" id="4_vtepg"]
+[ext_resource type="Texture2D" uid="uid://ci4m7prhrliiv" path="res://Assets/letters/A.svg" id="5_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://dphksdk386yp6" path="res://Assets/letters/O.svg" id="5_16hvj"]
+[ext_resource type="Texture2D" uid="uid://b4cdvx58xb51j" path="res://Assets/letters/Y.svg" id="6_m3bi6"]
 [ext_resource type="Texture2D" uid="uid://8f2n08qhy6f1" path="res://Assets/letters/G.svg" id="6_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://cmuyokkmt5l3d" path="res://Assets/letters/E.svg" id="7_t1dhk"]
 [ext_resource type="Texture2D" uid="uid://ddm6n8o67jgey" path="res://Assets/letters/V.svg" id="8_5egv6"]
 
+[sub_resource type="Theme" id="Theme_m3bi6"]
+
 [node name="Node2D" type="Node2D"]
 texture_filter = 2
-scale = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -34,27 +40,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -206.5
-offset_top = -4.0
-offset_right = 206.5
-offset_bottom = 108.03003
+offset_left = -102.0
+offset_top = -56.015015
+offset_right = 114.75
+offset_bottom = 56.015015
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(205.45, -1.64)
+pivot_offset = Vector2(117.4, -1.64)
+theme = SubResource("Theme_m3bi6")
+flat = true
 script = ExtResource("1_48xlc")
 
-[node name="Label" type="Label" parent="MainMenu/Play"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -19.5
-offset_right = 19.5
-offset_bottom = 22.333334
-grow_horizontal = 2
-scale = Vector2(5.06, 5.06)
-pivot_offset = Vector2(19.74, 0)
-text = "PLAY"
+[node name="P" type="Sprite2D" parent="MainMenu/Play"]
+position = Vector2(24, 58.5)
+scale = Vector2(0.070609115, 0.070609115)
+texture = ExtResource("3_5egv6")
+script = ExtResource("4_8dnnj")
+
+[node name="L" type="Sprite2D" parent="MainMenu/Play"]
+position = Vector2(68.5, 60.5)
+scale = Vector2(0.059999995, 0.059999995)
+texture = ExtResource("4_vtepg")
+script = ExtResource("4_8dnnj")
+
+[node name="A" type="Sprite2D" parent="MainMenu/Play"]
+position = Vector2(133.5, 59.5)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("5_8dnnj")
+script = ExtResource("4_8dnnj")
+
+[node name="Y" type="Sprite2D" parent="MainMenu/Play"]
+position = Vector2(183.5, 58.5)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("6_m3bi6")
+script = ExtResource("4_8dnnj")
 
 [node name="Title" type="Control" parent="."]
 layout_mode = 3

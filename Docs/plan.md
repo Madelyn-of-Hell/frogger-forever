@@ -1,8 +1,12 @@
 # Project Plan
 [back to directory](README.MD#directory)  
-Ok so the general plan for this project is to adapt the original game Frogger, with the key difference that instead of operating on the limited scope of a single screen. 
+Ok so the general plan for this project is to adapt the original game Frogger, with the key difference that instead of operating on the limited scope of a single screen, the game will continue vertically forever, with score calculated based on lines reached. Due to the endless nature of this adaptation requiring parts that can be easily reused and instance, this adaptation ("Frogger Forever") will utilise the Object Oriented Paradigm in order to maximise code reusability and legibility.  
+
+Frogger has a somewhat similar history to another classic old videogame: "Hunt the Wumpus". For this reason, we can consider the ways in which Hunt the Wumpus could be adapted to implement OOP.  
+Hunt the Wumpus' gameplay environment consists of a series of interconnected caves: nodes on a graph that forms a dodecahedron when projected into the third dimension. These caves are largely identical, all with three attached rooms, the chance to be filled with blood or bats, and occasionally some Cool Loot !!!!!  
+Due to their similarity, a single cave object could be created that has these as attributes, and references to the other caves. These references would be indexes in a list contained by a separate class representing the entire cave system, which would be responsible for generating and referencing the caves.
 I'll achieve this by creating a superclass defining a horizontal slice, then creating several child classes defining more specific obstacles such as roads, logjams and safe areas. 
 
 These horizontal objects will then be instantiated by a game handler object, which will be composed of a periodically updated linked list of the aforementioned slices as well as a player object, as well as a few UI components such as a textbox for score printing, a settings/pause menu and a popup prompt annoucing controls on the first playthrough.
 
-~~Some UI components, including start and pause menus as well as various popups will be handled through a modal class that will allow for various text types and parameters to be passed as variables in a manner inspired by the rust [iced](iced.rs) package, itself inspired by the elm architecture for UI design.~~
+~~Some UI components, including start and pause menus as well as various popups will be handled through a modal class that will allow for various text types and parameters to be passed as variables in a manner inspired by the rust [iced](iced.rs) package, itself inspired by the elm architecture for UI design.~~ (frankly this was a stupidly overcomplicated idea and i have no clue why I thought it was worth doing lol)

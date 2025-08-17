@@ -1,0 +1,193 @@
+[gd_scene load_steps=14 format=3 uid="uid://b6vha2tagk6ir"]
+
+[ext_resource type="Script" uid="uid://daik3xst8jh75" path="res://Scenes/restart.gd" id="1_fu03a"]
+[ext_resource type="Script" uid="uid://q0ov1pocwmyq" path="res://Object Scripts/play.gd" id="2_fu03a"]
+[ext_resource type="Texture2D" uid="uid://cce02v3js0jw6" path="res://Assets/letters/R.svg" id="3_d4x15"]
+[ext_resource type="Texture2D" uid="uid://cmuyokkmt5l3d" path="res://Assets/letters/E.svg" id="4_7hi4k"]
+[ext_resource type="Script" uid="uid://nh13d23sco71" path="res://Scenes/button_wobble.gd" id="4_p630i"]
+[ext_resource type="Texture2D" uid="uid://chtrbtagr43pe" path="res://Assets/letters/S.svg" id="5_p630i"]
+[ext_resource type="Texture2D" uid="uid://csomqpvwsobfb" path="res://Assets/letters/T.svg" id="6_ox57f"]
+[ext_resource type="Texture2D" uid="uid://ci4m7prhrliiv" path="res://Assets/letters/A.svg" id="7_06wum"]
+[ext_resource type="Texture2D" uid="uid://b4cdvx58xb51j" path="res://Assets/letters/Y.svg" id="9_vxy6d"]
+[ext_resource type="Texture2D" uid="uid://dphksdk386yp6" path="res://Assets/letters/O.svg" id="10_y7deq"]
+[ext_resource type="Texture2D" uid="uid://djtvd64x6oi1l" path="res://Assets/letters/U.svg" id="11_wwp4v"]
+[ext_resource type="Texture2D" uid="uid://dwho7f10mp3ae" path="res://Assets/letters/L.svg" id="12_iwsn5"]
+[ext_resource type="Texture2D" uid="uid://c2r7rrpmifr3f" path="res://Assets/letters/C.svg" id="13_y7deq"]
+
+[node name="Restart" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu03a")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -205.0
+offset_right = 138.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.689545
+offset_top = -5.991478
+offset_right = 28.689545
+offset_bottom = 5.991478
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.07, 3.07)
+pivot_offset = Vector2(29.21, 43.16)
+flat = true
+script = ExtResource("2_fu03a")
+
+[node name="R" type="Sprite2D" parent="Panel/Button"]
+position = Vector2(5.34569, 5.715043)
+scale = Vector2(0.008960396, 0.008684817)
+texture = ExtResource("3_d4x15")
+script = ExtResource("4_p630i")
+
+[node name="E" type="Sprite2D" parent="Panel/Button"]
+position = Vector2(12.427545, 5.715043)
+scale = Vector2(0.008, 0.008)
+texture = ExtResource("4_7hi4k")
+script = ExtResource("4_p630i")
+
+[node name="S" type="Sprite2D" parent="Panel/Button"]
+position = Vector2(20.24414, 5.7148438)
+scale = Vector2(0.008, 0.008684817)
+texture = ExtResource("5_p630i")
+script = ExtResource("4_p630i")
+
+[node name="T" type="Sprite2D" parent="Panel/Button"]
+position = Vector2(29.691393, 5.715043)
+scale = Vector2(0.008, 0.008)
+texture = ExtResource("6_ox57f")
+script = ExtResource("4_p630i")
+
+[node name="A" type="Sprite2D" parent="Panel/Button"]
+position = Vector2(37.83495, 5.715043)
+scale = Vector2(0.008, 0.008)
+texture = ExtResource("7_06wum")
+script = ExtResource("4_p630i")
+
+[node name="R2" type="Sprite2D" parent="Panel/Button"]
+position = Vector2(45.652332, 5.715043)
+scale = Vector2(0.008, 0.008)
+texture = ExtResource("3_d4x15")
+script = ExtResource("4_p630i")
+
+[node name="T2" type="Sprite2D" parent="Panel/Button"]
+position = Vector2(52.16698, 5.715043)
+scale = Vector2(0.008, 0.008)
+texture = ExtResource("6_ox57f")
+script = ExtResource("4_p630i")
+
+[node name="Score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = 75.153046
+offset_right = 39.0
+offset_bottom = 97.486664
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.14, 1.14)
+pivot_offset = Vector2(39.2, 0)
+text = "SCORE:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YOU LOSE" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_left = -186.0
+offset_top = -391.0
+offset_right = -146.0
+offset_bottom = -351.0
+
+[node name="Y" type="Sprite2D" parent="Panel/YOU LOSE"]
+position = Vector2(250.275, 608.7751)
+scale = Vector2(0.02753807, 0.026692132)
+texture = ExtResource("9_vxy6d")
+
+[node name="O" type="Sprite2D" parent="Panel/YOU LOSE"]
+position = Vector2(268.77502, 608.77484)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("10_y7deq")
+
+[node name="U" type="Sprite2D" parent="Panel/YOU LOSE"]
+position = Vector2(292.77502, 608.77484)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("11_wwp4v")
+
+[node name="L" type="Sprite2D" parent="Panel/YOU LOSE"]
+position = Vector2(332, 609.00006)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("12_iwsn5")
+
+[node name="O2" type="Sprite2D" parent="Panel/YOU LOSE"]
+position = Vector2(352, 609)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("10_y7deq")
+
+[node name="S" type="Sprite2D" parent="Panel/YOU LOSE"]
+position = Vector2(375, 609.00006)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("5_p630i")
+
+[node name="E" type="Sprite2D" parent="Panel/YOU LOSE"]
+position = Vector2(396, 609.00006)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_7hi4k")
+
+[node name="SCORE" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="S" type="Sprite2D" parent="Panel/SCORE"]
+position = Vector2(104.82001, 256.82)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("5_p630i")
+
+[node name="C" type="Sprite2D" parent="Panel/SCORE"]
+position = Vector2(121.82001, 256.82)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("13_y7deq")
+
+[node name="O" type="Sprite2D" parent="Panel/SCORE"]
+position = Vector2(137.82, 255.82)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("10_y7deq")
+
+[node name="R" type="Sprite2D" parent="Panel/SCORE"]
+position = Vector2(155.82, 255.82)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("3_d4x15")
+
+[node name="E" type="Sprite2D" parent="Panel/SCORE"]
+position = Vector2(170.82, 255.82)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("4_7hi4k")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false

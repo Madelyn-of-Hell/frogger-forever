@@ -28,7 +28,9 @@ func cleanup():
 	
 func _on_player_death(score:int):
 	var death_panel = preload("res://Scenes/restart.tscn").instantiate()
-	death_panel.set_position(Vector2(0,-0.75*grid_step))
+	death_panel.set_position(Vector2(0,grid_step*-score))
+	death_panel._set_score(score)
+	death_panel.set_scale(Vector2(1.5,1.5))
 	call_deferred("add_child", death_panel)
 
 func _ready() -> void:
