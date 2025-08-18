@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3jpdlvbl1frp"
-path="res://.godot/imported/Player.png-54d4b13ac506f96b99814af866f299ae.ctex"
+uid="uid://d7p2jvv2jdpp"
+path="res://.godot/imported/Frogger_Forever_Tileset.png-8861c6601023a99a66eb3999cd2faa80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player.png"
-dest_files=["res://.godot/imported/Player.png-54d4b13ac506f96b99814af866f299ae.ctex"]
+source_file="res://Assets/Frogger_Forever_Tileset.png"
+dest_files=["res://.godot/imported/Frogger_Forever_Tileset.png-8861c6601023a99a66eb3999cd2faa80.ctex"]
 
 [params]
 

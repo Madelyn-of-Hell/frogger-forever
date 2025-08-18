@@ -1,0 +1,73 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://b2oclc2y21siy"]
+
+[ext_resource type="Texture2D" uid="uid://d7p2jvv2jdpp" path="res://Assets/Frogger_Forever_Tileset.png" id="1_n1k28"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1k28"]
+atlas = ExtResource("1_n1k28")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7axy0"]
+atlas = ExtResource("1_n1k28")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qntfw"]
+atlas = ExtResource("1_n1k28")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohfnm"]
+atlas = ExtResource("1_n1k28")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxngy"]
+atlas = ExtResource("1_n1k28")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ske42"]
+atlas = ExtResource("1_n1k28")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bqm6"]
+atlas = ExtResource("1_n1k28")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twbqo"]
+atlas = ExtResource("1_n1k28")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n1k28"]
+load_path = "res://.godot/imported/Player.png-54d4b13ac506f96b99814af866f299ae.ctex"
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1k28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7axy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qntfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohfnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxngy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ske42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bqm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twbqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_n1k28")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

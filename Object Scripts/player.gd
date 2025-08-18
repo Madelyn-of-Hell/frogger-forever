@@ -18,7 +18,7 @@ func _init() -> void:
 	target_pos = self.get_position()
 	
 	sprite = Sprite2D.new()
-	sprite.set_texture(preload("res://Assets/Player.png"))
+	sprite.set_texture(sprite_sheet.get_frame_texture("default", 8))
 	sprite.set_scale(Vector2(sprite_size * 0.9,sprite_size * 0.9))
 	add_child(sprite)
 	
@@ -63,11 +63,15 @@ func _physics_process(delta: float) -> void:
 	if movement_timer.is_stopped():
 		if Input.is_action_pressed("Up"):
 			target_pos.y -= grid_step
+			self.set_rotation(0)
 		if Input.is_action_pressed("Down"):
+			self.set_rotation(-PI)
 			target_pos.y += grid_step
 		if Input.is_action_pressed("Left"):
+			self.set_rotation(-PI/2)
 			target_pos.x -= grid_step
 		if Input.is_action_pressed("Right"):
+			self.set_rotation(PI/2)
 			target_pos.x += grid_step
 		if Input.is_anything_pressed():
 			movement_timer.start()

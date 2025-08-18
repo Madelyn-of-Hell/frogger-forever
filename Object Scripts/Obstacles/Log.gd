@@ -3,7 +3,14 @@ extends Obstacle
 class_name LogObstacle
 
 func _init(Speed: int, direction: Direction, Length:int = 0) -> void:
-	sprite_sheet = preload("res://Assets/Log.png")
+	self.max_length = 8
+	
+	if Length == 0: 
+		self.length = randi_range(1,self.max_length)
+	else:
+		self.length = Length % max_length + 1
+		
+	sprite_indices = [3,3,3]
 	can_be_walked_on = true
-	max_length = 8
-	super._init(Speed, direction, Length)
+	super._init(Speed, direction)
+	self.set_name("Log")

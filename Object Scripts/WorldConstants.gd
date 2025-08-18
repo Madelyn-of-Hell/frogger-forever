@@ -7,6 +7,8 @@ const grid_step:int = 45
 const sprite_size:float = 0.063*grid_step
 ## The width (in grid units) of the screen
 const screen_width:int = 760 / grid_step
+## A global spritesheet containing all needed assets
+var sprite_sheet:SpriteFrames = preload("res://Assets/main_sprite_sheet.tres")
 ## A polarised enumerator representing either left or right (-1 or 1)
 enum Direction {
 	left = -1,
