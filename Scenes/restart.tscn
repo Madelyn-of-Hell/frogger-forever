@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6vha2tagk6ir"]
+[gd_scene load_steps=15 format=3 uid="uid://b6vha2tagk6ir"]
 
 [ext_resource type="Script" uid="uid://daik3xst8jh75" path="res://Scenes/restart.gd" id="1_fu03a"]
 [ext_resource type="Script" uid="uid://q0ov1pocwmyq" path="res://Object Scripts/play.gd" id="2_fu03a"]
+[ext_resource type="Texture2D" uid="uid://ci184ytt17fpe" path="res://Assets/Backplate.svg" id="2_wwp4v"]
 [ext_resource type="Texture2D" uid="uid://cce02v3js0jw6" path="res://Assets/letters/R.svg" id="3_d4x15"]
 [ext_resource type="Texture2D" uid="uid://cmuyokkmt5l3d" path="res://Assets/letters/E.svg" id="4_7hi4k"]
 [ext_resource type="Script" uid="uid://nh13d23sco71" path="res://Scenes/button_wobble.gd" id="4_p630i"]
@@ -23,8 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fu03a")
 
-[node name="Panel" type="Panel" parent="."]
-modulate = Color(0, 1, 0, 1)
+[node name="Panel" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,9 +38,13 @@ offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Backplate" type="Sprite2D" parent="Panel"]
+position = Vector2(146, 199)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("2_wwp4v")
+
 [node name="Button" type="Button" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -99,8 +103,7 @@ texture = ExtResource("6_ox57f")
 script = ExtResource("4_p630i")
 
 [node name="Score" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -113,6 +116,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.14, 1.14)
 pivot_offset = Vector2(39.2, 0)
+theme_override_colors/font_color = Color(0.33036235, 0.7375732, 0.24265546, 1)
 text = "SCORE:"
 horizontal_alignment = 1
 vertical_alignment = 1
